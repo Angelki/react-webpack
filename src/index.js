@@ -1,7 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import FormContainer from "./js/components/container/FormContainer";
+import { init } from "@rematch/core";
+import { Provider } from "react-redux";
+import * as models from "./model";
+import FormContainer from "./components/container/FormContainer";
 
-const wrapper = document.getElementById("create-article-form");
-
-wrapper ? ReactDOM.render(<FormContainer />, wrapper) : false;
+import("./initialize").then(({ initModel }) => {
+  const wrapper = document.getElementById("create-article-form");
+  const store = init({
+    models: initModel(),
+    redux: {
+      devtoolOptions: {
+        disabled: false
+      }
+    }
+  });
+  const Root = _ => (
+    <Provider store={store}>
+      <FormContainer />
+    </Provider>
+  );
+  console.log(wrapper);
+  wrapper ? ReactDOM.render(<Root />, wrapper) : false;
+});
