@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import Input from "../presentational/Input";
+import { connect } from "react-redux";
 
+@connect(state => ({
+  count: state.count
+}))
 class FormContainer extends Component {
   constructor() {
     super();
@@ -15,6 +19,7 @@ class FormContainer extends Component {
   }
   render() {
     const { seo_title } = this.state;
+    console.log(this.props.count);
     return (
       <form id="article-form">
         <Input
