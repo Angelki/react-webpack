@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { init } from "@rematch/core";
 import { Provider } from "react-redux";
-import * as models from "./model";
 import FormContainer from "./components/container/FormContainer";
 
 import("./initialize").then(({ initModel }) => {
@@ -20,6 +19,5 @@ import("./initialize").then(({ initModel }) => {
       <FormContainer />
     </Provider>
   );
-  console.log(wrapper);
   wrapper ? ReactDOM.render(<Root />, wrapper) : false;
 });

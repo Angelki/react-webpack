@@ -1,5 +1,5 @@
 import models from "../model";
-console.log(models);
+
 export default _ => {
   const filteredModels = {};
 

@@ -14,12 +14,10 @@ class FormContainer extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(event) {
-    console.log(event);
     this.setState({ [event.target.id]: event.target.value });
   }
   render() {
     const { seo_title } = this.state;
-    console.log(this.props.count);
     return (
       <form id="article-form">
         <Input
